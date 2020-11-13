@@ -175,7 +175,7 @@ int list_size(List *li){
    return INVALID_NULL_POINTER;
  }
   list_node *aux = li->head;  
-  int size=0;
+  int size=1;
 
   while(aux->next != NULL){
     aux = aux->next;
