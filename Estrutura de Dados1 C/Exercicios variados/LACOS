@@ -1,0 +1,389 @@
+//EX1 
+    #include <stdio.h>
+
+    int main(void) {
+      int i=10;
+      printf("<< Contagem regressiva >>\nFor: ");
+      
+      for(i=10; i>=0; i--){
+        if(i == 0){
+          printf("%d.. FIM!\n\n", i);
+        }else
+          printf("%d.. ", i);
+      }
+      
+      i=10;
+      printf("While: ");
+      while(i>=0){
+        if(i == 0){
+          printf("%d.. FIM!\n\n", i);
+        }else
+          printf("%d.. ", i);
+      i--;
+      }
+      
+      i=10;
+      printf("Do..While: ");
+      do{
+        if(i == 0){
+          printf("%d.. FIM!\n", i);
+        }else
+          printf("%d.. ", i);
+        i--;
+      }while(i>=0);
+      
+      return 0;
+    }
+//EX2
+    #include <stdio.h>
+
+    int main(void) {
+      int i, aux;
+      printf("<< Contagem regressiva >>\nQual é o número inicial? : ");
+      scanf("%d", &i);
+      aux=i;
+      printf("Usando for: ");
+      for(; i>=0; i--){
+        if(i == 0){
+          printf("%d.. FIM!\n\n", i);
+        }else
+          printf("%d.. ", i);
+      }
+      i=aux;
+      printf("Usando while: ");
+      while(i>=0){
+        if(i == 0){
+          printf("%d.. FIM!\n\n", i);
+        }else
+          printf("%d.. ", i);
+      i--;
+      }
+      
+      i=aux;
+      printf("Usando do..while: ");
+      do{
+        if(i == 0){
+          printf("%d.. FIM!\n", i);
+        }else
+          printf("%d.. ", i);
+        i--;
+      }while(i>=0);
+      
+      return 0;
+    }
+//EX3
+    #include <stdio.h>
+
+    int main(void) {
+      int i, aux;
+      printf("<< Contagem progressiva até 0 >>\nQual é o número inicial? ");
+      scanf("%d", &i);
+      aux=i;
+      
+      printf("Usando for: ");
+      for(; i<=0; i++){
+        if(i == 0){
+          printf("%d.. FIM!\n", i);
+        }else{
+        printf("%d.. ", i);}
+      }
+      
+      i=aux;
+      printf("Usando while: ");
+      while(i<=0){
+        if(i==0){
+          printf("%d.. FIM!\n", i);
+        }else
+          printf("%d.. ", i);
+        i++;
+      }
+      
+      i=aux;
+      printf("Usando do..while: ");
+      do{
+        if(i==0){
+          printf("%d.. FIM!", i);
+        }else
+          printf("%d.. ", i);
+      i++;
+      }while(i<=0);
+      return 0;
+    }
+//EX4
+    #include <stdio.h>
+
+    int main(void) {
+      int n;
+      int i, somaF=0, somaW=0, somaDW=0;
+      
+      printf("<< Soma de n valores naturais >>\nQuantos números deseja somar");
+      scanf("%d", &n);
+      
+      for(i=1; i<=n; i++){
+        somaF +=i;
+      }
+      
+      i=1;
+      while(i<=n){
+        somaW = somaW+i;
+        i++;
+      }
+      
+      i=1;
+      do{
+        somaDW += i;
+        i++;
+      }while(i<=n);
+      
+      printf("A soma dos %d primeiros números naturais usando for é: %d\n", n, somaF);
+      printf("A soma dos %d primeiros números naturais usando while é: %d\n", n, somaW);
+      printf("A soma dos %d primeiros números naturais usando do..while é: %d\n", n, somaDW);
+      return 0;
+    }
+//EX5
+    #include <stdio.h>
+
+    int main(void) {
+      int n, i, j;
+      printf("<< Múltiplos >>\nEntre com o valor de n: ");
+      scanf("%d", &n);
+      
+      printf("Entre com o valor de i: ");
+      scanf("%d", &i);
+      
+      printf("Entre com o valor de j: ");
+      scanf("%d", &j);
+      
+      int auxI=0, auxJ=0, k, l;
+      printf("Os múltiplos de i ou j são : ");
+      for(int aux=0; aux<n; aux++){
+        k = i*auxI;
+        l = j*auxJ;
+      
+        if(k == l){
+          if(aux<(n-1)){
+            printf("%d,", k);
+          }else{
+              printf("%d", k);}
+        auxI++;
+        auxJ++;
+        }
+        
+        else if(k < l){
+          if(aux < (n-1)){
+            printf("%d,", k);
+          }else{
+            printf("%d", k);}
+          
+        auxI++;
+        }
+        
+        else{
+          if(aux < (n-1)){
+            printf("%d,", l);
+          }else{
+            printf("%d", l);}
+        auxJ++;
+        }
+      }//for
+      return 0;
+    }
+//EX6
+    #include <stdio.h>
+
+    int main(void) {
+      int ehprimo=0, p;
+      printf("<< Números primos >>\nEntre com o valor: ");
+      scanf("%d", &p);
+      int resto, cont=0;
+      
+      for(int i=1; i<p; i++){
+        resto = (p%i);
+        if(resto == 0){
+          ehprimo++;
+        }
+      }
+      if(ehprimo >2){
+        printf("O número %d não é primo\n", p);
+      }else{
+        printf("O número %d é primo\n", p);
+      }
+      return 0;
+    }
+//EX7
+    #include <stdio.h>
+    #include <math.h>
+
+    int main(void) {
+      int numBits, bits[50], ajusta[50];
+      
+      printf("<< Conversor binário-decimal >>\nEntre com o número de bits: ");
+      scanf("%d", &numBits);
+      
+      for(int i=0; i<numBits; i++){
+        printf("Digite o bit # %d: ", i+1);
+        scanf("%d", &bits[i]);
+      }
+      printf("O número binário ");
+      int conv=0, pt1=0, expoente=0;
+      for(int i=0, j=numBits-1; i<numBits; i++, j--){
+          ajusta[j] = bits[i];
+        conv = conv + bits[j]*pow(2, i);
+        printf("%d", bits[i]);
+      }
+      printf(" em decimal é %d", conv);
+      return 0;
+    }
+//EX8
+    #include <stdio.h>
+    #include <math.h>
+    int main(void) {
+      double bit=2, posicao;
+      for(; bit<=128; bit=bit*2){
+        posicao = pow(2, bit);
+        if(bit >=64){
+          printf("Com %.0lf bits é possível endereçar %.14e posições de memória\n", bit, posicao);
+        }else{
+        printf("Com %.0lf bits é possível endereçar %.0lf posições de memória\n", bit, posicao);
+        }
+      }
+      return 0;
+    }
+//EX9
+    #include <stdio.h>
+
+    int main(void) {
+      char  letra;
+      int j=4;
+      printf("<<Forca de uma letra só>>\nQual a letra? ");
+        scanf("%c", &letra);
+        
+        for(int i=1; i<=5; i++, j--){
+          if(letra == 'w'){
+          printf("ACERTOU!\n");
+            return 0;
+          }
+          else{
+            if(i == 4){
+            getchar();
+            printf("Última chance!!!\nQual a letra? ");
+            scanf("%c", &letra);
+          }else if(i == 5){
+            printf("Acabaram suas chances. A letra correta é 'w'\n");}
+            else{
+            getchar();
+            printf("Errado! Você tem mais  %d chances\nQual a letra? ", j);
+            scanf("%c", &letra);
+          }
+          }
+        }
+      return 0;
+    }
+//EX10
+    #include <stdio.h>
+
+    int main(void) {
+      char opc;
+      double km, ms;
+      do{
+      printf("<< Conversor >>\n Digite uma opção\n  1 - para converter de km/h para m/s\n");
+      printf("  2 - para converter de m/s para hm/h\n  q - para sair \n");
+      scanf("%c", &opc);
+      
+      switch(opc){
+      case'1':
+        printf("Digite a velocidade (km/h): ");
+        scanf("%lf", &ms);
+        ms = (ms/3.6);
+        printf("A velocidade em m/s é %.2lf\n", ms);
+        getchar();
+        break;
+      
+      case '2':
+        printf("Digite a velocidade (m/s): ");
+        scanf("%lf", &km);
+        km = (km*3.6);
+        printf("A velocidade em km/h é %.0lf\n", km);
+        getchar();
+        break;
+      }
+      
+    }while(opc != 'q');
+      return 0;
+    }
+//EX11
+    #include <stdio.h>
+
+    int main(void) {
+      int jose=50000, carlos=25000, val;
+      int mes=0;
+      jose = jose-800;
+      carlos = carlos-3000;
+      do{
+        carlos += 3000;
+        jose += 800;
+        mes++;
+      }while(carlos <= jose);
+      mes -= 12;
+      printf("%d\n", mes);
+      return 0;
+    }
+//EX12
+    #include <stdio.h>
+
+    int main(void) {
+      int num=6, cont=1;
+      scanf("%d", &num);
+      for(int i=1; i<=num; i++){
+        for(int j=1; j<=i; j++){
+          printf("%d ", cont);
+          cont++;
+        }
+        printf("\n");  
+      }
+      
+      return 0;
+    }
+//EX13
+    #include <stdio.h>
+
+    int main(void) {
+      int i=1, fat=1;
+      printf("<< Fatorial >> \n");
+      while(i<=10){
+        fat = fat*i;
+        printf("%d! = %d\n",i,fat);  
+        i++;
+      }
+      return 0;
+    }
+//EX14
+    #include <stdio.h>
+
+    int main(void) {
+      double fat=3628800, i=11;
+      printf("<< Fatorial >>\n");
+      do{
+        fat *= i;
+        printf("%.0lf! = %.0lf\n", i, fat);
+        i++;
+      }while(i<=15);
+      return 0;
+    }
+//EX15
+    #include <stdio.h>
+    //1/fatorial
+    int main(void) {//fatorial = fatorial *indice
+      double fat=1, neperiano=1;
+      int i=1, num;
+      
+      printf("<< Número neperiano >>\nEntre com o número de termos: ");
+      scanf("%d", &num);
+      
+      for(; i<=num; i++){
+        fat = fat*i;
+        neperiano = neperiano +(1/fat);
+      }
+      printf("e ~ %.14lf\n", neperiano);
+      return 0;
+    }

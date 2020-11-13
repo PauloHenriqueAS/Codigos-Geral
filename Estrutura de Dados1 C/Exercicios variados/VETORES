@@ -1,0 +1,529 @@
+//EX1
+        #include <stdio.h>
+
+        int main(void) {
+        
+        int vet1[6];
+        
+        printf("<< Listando um vetor >>\n");
+            printf(" Entre com o número 1: ");
+            scanf("%d", &vet1[0]);
+            printf(" Entre com o número 2: ");
+            scanf("%d", &vet1[1]);
+            printf(" Entre com o número 3: ");
+            scanf("%d", &vet1[2]);
+            printf(" Entre com o número 4: ");
+            scanf("%d", &vet1[3]);
+            printf(" Entre com o número 5: ");
+            scanf("%d", &vet1[4]);
+            printf(" Entre com o número 6: ");
+            scanf("%d", &vet1[5]);
+            
+            printf("\nOs valores lidos são: %d %d %d %d %d %d\n", vet1[0], vet1[1], vet1[2], vet1[3], vet1[4], vet1[5]);
+        
+        return 0;
+        }
+//EX2
+        #include <stdio.h>
+
+        int main(void) {
+        int vet1[6], cont=0, aux=1;
+        
+        printf("<< Listando um vetor >>\n");
+        
+        while(aux <= 6 ){
+            printf(" Entre com o número %d:", aux);
+            scanf("%d", &vet1[cont]);
+            cont++;
+            aux++;
+        }
+            printf("\nOs valores lidos são: ");
+        for(cont=0; cont < 6; cont++){
+            printf("%d ", vet1[cont]);
+        }
+        
+        return 0;
+        }
+//EX3
+        #include <stdio.h>
+
+        int main(void) {
+        int vet1[6], aux=1;
+        
+        printf("<< Listando um vetor em ordem inversa >>\n");
+        
+        do{
+            printf(" Entre com o número %d:", aux);
+            scanf("%d", &vet1[aux]);
+            aux++;
+        }while(aux <= 6);
+        
+        printf("A ordem inversa dos números é: ");
+        for(aux=6; aux >=1; aux--){
+            printf("%d ", vet1[aux]);
+        }
+        
+        return 0;
+        }
+//EX4
+        #include <stdio.h>
+
+        int main(void) {
+        int vet1[6], aux=1, aux2=0, cont=0;
+        
+        printf("<< Listando um vetor de números pares>>\n");
+        while(cont < 6){
+            printf(" Entre com o número %d:", aux);
+            scanf("%d", &aux2);
+            
+            if((aux2 % 2) != 0){
+            printf(" Erro: Valor inválido\n");
+            aux2 = 0;
+            //cont = 0;
+            }else{
+            vet1[cont] = aux2;
+            cont++;
+            aux++;
+            }
+        }
+        cont = 0;
+        printf("Os números pares digitados foram: ");
+        while(cont < 6){
+            printf("%d ", vet1[cont]);
+            cont++;
+        }
+        return 0;
+        }
+//EX5
+        #include <stdio.h>
+
+        int main(void) {
+        int vet1[5], min=1, max=1, aux=1,cont=0;
+        double media=0.0;
+        
+        printf("<< 5 valores >>\n");
+        while(cont < 5){
+            printf(" Entre com o número %d: ", aux);
+            scanf("%d", &vet1[cont]);
+            media = media + vet1[cont];
+            if(cont == 0){
+            min = vet1[cont];
+            max = vet1[cont];
+            }
+            
+            if(vet1[cont] > max){
+            max = vet1[cont];
+            }if(vet1[cont] < min){
+            min = vet1[cont];
+            }
+            aux++;
+            cont++;
+        }
+        
+        media = media/5.0;
+        printf("Os números digitados são: ");
+        for(cont=0; cont<5; cont++){
+            printf("%d ", vet1[cont]);
+        }
+        printf("\nO maior valor é: %d\n", max);
+        printf("O menor valor é: %d\n", min);
+        printf("A média é: %.1lf\n", media);
+        return 0;
+        }
+//EX6
+        #include <stdio.h>
+
+        int main(void) {
+        int vet[5], min,max;
+        int i, aux, posiMin, posiMax;
+        double media;  
+        printf("<< 5 valores >>\n");
+        for(i=0, aux=1; i<5; i++, aux++){
+            printf(" Entre com o número %d: ", aux);
+            scanf("%d", &vet[i]);
+            media =  media + vet[i];
+            
+            if(i == 0){
+            min = vet[i];
+            max = vet[i];
+            }
+            
+            if(vet[i] > max){
+            max = vet[i];
+            posiMax = i;
+            }
+            if(vet[i] < min){
+            min = vet[i];
+            posiMin = i;
+            }
+            
+        }
+        media = media/5.0;
+        printf("Os números digitados são: ");
+        for(int j = 0; j<5; j++){
+            printf("%d ",vet[j]);
+        }
+        printf("\nO maior valor é: %d, localizado na posição %d do vetor\n", max, posiMax);
+        printf("O menor valor é: %d, localizado na posição %d do vetor\n", min, posiMin);
+        printf("A média é: %.1lf", media);
+        return 0;
+        }
+//EX7
+        #include <stdio.h>
+
+        int main(void) {
+        int vet[5], i, aux=1, maior=0;
+        printf("<<Normalizando as notas>>\n");
+        
+        for(i=0; i<5; i++, aux++){
+            printf("Entre com a nota do aluno %d: ", aux);
+            scanf("%d", &vet[i]);
+            
+            if(i==0)
+            maior = vet[i];
+            
+            if(vet[i] > maior){
+            maior = vet[i];
+            }
+        }
+        i=0;
+        aux=1;
+        printf("\nNotas normalizadas\n");
+        while(i<5){
+            
+            printf("A nota do aluno %d é %d\n", aux, (vet[i]*100)/maior);
+            i++;
+            aux++;
+        }
+        
+        return 0;
+        }
+//EX8
+        #include <stdio.h>
+        #include <stdlib.h>
+        #include <math.h>
+
+        int main(void) {
+        int i=1, aux=1;
+        double vet[5]={0}, media=0.0, desvio=0.0, pt1=0.0;
+        
+        printf("<< Média e desvio-padrão >>\n");
+        do{
+            printf("Digite o valor %d: ", aux);
+            scanf("%lf", &vet[i]);
+            
+            media = media +vet[i];
+            aux++;
+            i++;
+        }while(i<=5);
+        
+        media = media/5.0;//achar a media
+        for(i=1; i<=5; i++){
+            pt1 = pow((vet[i] - media), 2);// (Xi-media)^2
+            desvio = desvio + pt1;//somar todos os resultados de pt1
+        }
+        desvio = desvio/4.0;//n-1 ->5-1 = 4
+        desvio = sqrt(desvio);//achar a raiz quadrada
+        
+        printf("A média é %.4lf e o desvio-padrão é %.4lf", media, desvio);
+        return 0;
+        }
+//EX9
+        #include <stdio.h>
+
+        int main(void) {
+        int vet[4], max=0, min=0, aux, i;
+        double media=0.0;
+        int num;
+        
+        printf("<< Média de n alunos. Máximo 100 alunos >>\n");
+        printf("Entre com o número de alunos: ");
+        scanf("%d", &num);
+        
+        if(num <= 100){
+        for(i=0, aux=1; i<num; i++, aux++){
+            printf("Digite a nota do aluno %d: ", aux);
+            scanf("%d", &vet[i]);
+            media = media+vet[i];
+            if(i==0){
+            min = vet[i];
+            max = vet[i];
+            }
+            if(vet[i]>max)
+            max = vet[i];
+            if(vet[i]<min)
+            min = vet[i];
+        }
+        printf("Relatório de Notas\n");
+        media = media/num;
+        i=0;
+        while(i<num){
+        printf("A nota do aluno %d é: %d\n", i, vet[i]);
+        i++;
+        }
+        printf("A média da turma é: %.1lf", media);
+        
+        }//if
+        else{
+            printf("Erro! O número máximo de alunos permitido é 100.\n");
+            return 0;
+        }
+        return 0;
+        }
+//EX10
+        #include <stdio.h>
+
+        int main(void) {
+        int A[3], B[3], C[3], i;
+        printf("<< Subtração de vetores >>\n");
+        
+        for(i=0; i<3; i++){
+            printf("Digite o valor %d de A: ", i+1);
+            scanf("%d", &A[i]);
+        }
+        printf("\n");
+        i=0;
+        while(i<3){
+            printf("Digite o valor %d de B: ", i+1);
+            scanf("%d", &B[i]);
+            i++;
+        }
+        printf("\n");
+        i=0;
+        do{
+            C[i] = A[i] - B[i];
+            i++;
+        }while(i<3);
+        
+        printf("O vetor C, definido como C = A-B é (%d, %d, %d)\n", C[0], C[1],C[2]);
+        return 0;
+        }
+//EX11
+        #include <stdio.h>
+
+        int main(void) {
+        int v[5]={0}, v1[5]={0}, v2[5]={0}, i, teste;
+        printf("<< Pares e Ímpares >>\n");
+        int par=0, impar=0;
+        
+        for(i=0; i<5; i++){
+            printf("Digite o valor %d: ", i+1);
+            scanf("%d", &v[i]);
+            teste = v[i];
+            if(teste%2==0){
+            v1[par] = teste;//armazenar na posicao par pois ela vai tipo a aux
+            par++;
+            }else{
+            v2[impar] = teste;//armazenar na posicao impar pois ela vai tipo a aux
+            impar++;
+            }
+        }
+        printf("\nÍmpares: ");
+        for(i=0; i<impar; i++){
+            if(i == impar-1){
+            printf("%d\n", v2[i]);
+            }else{
+            printf("%d,", v2[i]);
+            }
+        }
+        
+        printf("Pares: ");
+        for(i=0; i<par; i++){
+            if(i == par-1){
+            printf("%d\n", v1[i]);
+            }else{
+            printf("%d, ", v1[i]);
+            }
+        }
+        return 0;
+        }
+//EX12
+        #include <stdio.h>
+
+        int main(void) {
+        int verde, vermelho, azul, amarelo, i;
+        
+        printf("<< Probabilidades >>\n");
+        printf("Digite a quantidade de bolinhas\n");
+        printf("Verde: ");
+        scanf("%d", &verde);
+        printf("Azul: ");
+        scanf("%d", &azul);
+        printf("Amarela: ");
+        scanf("%d", &amarelo);
+        printf("Vermelha: ");
+        scanf("%d", &vermelho);
+        
+        double soma, probAz, probAm, probVer, probVerde;
+        soma = vermelho+amarelo+azul+verde;
+        probAz = (azul*100)/soma;
+        probAm = (amarelo*100)/soma;
+        probVer = (vermelho*100)/soma;
+        probVerde = (verde*100)/soma;
+        
+        double vet[4];
+        vet[0]=probVerde;
+        vet[1]=probAz;
+        vet[2]=probAm;
+        vet[3]=probVer;
+        
+        double maior=0.0;
+        for(int j=0; j<4; j++){
+            if(vet[j]>maior){
+            maior = vet[j];
+            }
+        }
+        printf("\nProbabilidades\n");
+        if(probVerde >= maior){
+            printf("Verde: %.1lf%%<< Maior probabilidade\n", probVerde);
+        }else{
+            printf("Verde: %.1lf%%\n", probVerde);
+        }
+        if(probAz >= maior){
+            printf("Azul: %.1lf%%<< Maior probabilidade\n", probAz);
+        }else{
+            printf("Azul: %.1lf%%\n", probAz);
+        }
+
+        if(probAm >= maior){
+            printf("Amarela: %.1lf%%<< Maior probabilidade\n", probAm);
+        }else{
+            printf("Amarela: %.1lf%%\n",probAm);
+        }
+
+        if(probVer >= maior ){
+            printf("Vermelha: %.1lf%%<< Maior probabilidade\n", probVer);
+        }else{
+            printf("Vermelha: %.1lf%%\n", probVer);//printf("Vermelha: %.2lf%% porque na c11 ele aproxima alguns valores(tipo 22,99 == 23,0)
+        } 
+        return 0;
+        }
+//EX13
+        #include <stdio.h>
+
+        int main(void) {
+        int vet[5], i=0;
+        
+        printf("<< Zerando negativos >>\n");
+        do{
+            printf("Entre com o número %d: ", i+1);
+            scanf("%d", &vet[i]);
+            
+            if(vet[i]<0){
+            vet[i] = 0;
+            }
+        i++;
+        }while(i<5);
+        
+        printf("Zerando os negativos, obtém-se: ");
+        for(i=0; i<5; i++){
+            printf("%d ", vet[i]);
+        }
+        return 0;
+        }
+//EX14
+        #include <stdio.h>
+
+        int main(void) {
+        int vs, i;
+        
+        printf("<< Universidade X >>\n");
+        printf("Quantos alunos serão cadastrados: ");
+        scanf("%d", &vs);
+        if(vs > 10000){
+        return 0; 
+        }else{
+            
+        int  num[vs];
+        char cs[vs];
+        double cra[vs];
+        
+        
+        for(i=0; i<vs; i++){
+            printf("\nEntre com o número do aluno: ");
+            scanf("%d", &num[i]);
+            getchar();
+            printf("Entre com a classe social do aluno %d: ", num[i]);
+            scanf("%c", &cs[i]);
+            getchar();
+            printf("Entre com o CRA do aluno %d: ", num[i]);
+            scanf("%lf", &cra[i]);
+            
+        }
+        printf("\n==== Alunos Cadastrados ====\n");
+        for(i=0; i<vs; i++){
+            printf("Número: %d Classe Social: %c CRA: %.2lf\n", num[i], cs[i], cra[i]);
+        }
+        }
+        return 0;
+        
+        }
+//EX15
+        #include <stdio.h>
+        #include <stdlib.h>
+        #include <math.h>
+
+        int main(void){
+        int numeros[8]={0}, iguais[8];
+        int i, j, igual=0, numerosAux[8]={1,1,1,1,1,1,1,1};
+
+        printf("<< Valores iguais >>\n");
+        for(i=0; i<8; i++){
+            printf("Entre com o número %d: ", i+1);
+            scanf("%d", &numeros[i]);
+        }
+        printf("Valores repetidos: ");
+        for(i=0; i<8; i++){
+            for(j=i+1; j<8; j++){
+            if(numeros[i] == numeros[j]){//numeros[i+1]
+            if(numerosAux[i] >= 1){
+                numerosAux[i]++;
+            }
+            numerosAux[j] = -1;
+            }
+        }
+        }
+            for(i=0; i<8; i++){
+                if(numerosAux[i] > 1){
+                    printf("%d ", numeros[i]);
+                }
+            }
+        printf("\n");
+        }
+//EX16
+        #include <stdio.h>
+
+        int main(void) {
+        int vet[8], i=0, iguais=0;
+        int vetAux[8]={1,1,1,1,1,1,1,1};
+        //iniciei em 1 pois se entrou no laco para verificar, ele ja encontrou um numero igual
+        
+        printf("<< Valores iguais >>\n");
+        for(i=0; i<8; i++){
+            printf("Entre com o número %d: ",i+1);
+            scanf("%d", &vet[i]);
+        }
+        
+        printf("Valores repetidos: \n");
+        int vezes[8]={1,1,1,1,1,1,1,1};
+        
+        for(i=0; i<8; i++){
+            for(int j=i+1; j<8; j++){
+            if(vet[i] == vet[j]){
+                if(vetAux[i] >= 1){
+                vetAux[i]++;
+                }
+                vezes[i] = vezes[i]+1;
+                vetAux[j] = -1;
+            }
+            }
+            }
+            
+        for(i=0; i<8; i++){
+                if(vetAux[i] > 1){
+                    printf("%d aparece %d vezes\n", vet[i], vezes[i]);
+                }
+            }
+        
+        return 0;
+        }
