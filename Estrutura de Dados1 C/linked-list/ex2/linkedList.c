@@ -188,7 +188,7 @@ int list_size(List *li){
    return INVALID_NULL_POINTER;
  }
 
-  int aux2 = 0;  
+  int aux2 = 1;  
   
   while(aux2 != li->size){
     aux2 += 1;
