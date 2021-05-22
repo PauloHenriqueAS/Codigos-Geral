@@ -1,13 +1,19 @@
 package Trabalho2;
 
-public class proprietario extends Cliente{
-	private float dataCadastro;//Date
+import java.time.LocalDate;
 
-	public float getDataCadastro() {
+public class proprietario extends Cliente{
+	private LocalDate dataCadastro;//Date
+
+	public LocalDate getDataCadastro() {
 		return dataCadastro;
 	}
-	public void setDataCadastro(float dataCadastro) {
+	public void setDataCadastro(LocalDate dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
+	
+	/*Metodos
+	public void cadastrarImovel(String endereco, String cpfproprietario){}
+	public String pesquisarProprietario(String nomeProprietario){}*/
 	
 }

@@ -6,8 +6,9 @@ public class FormaPagamento {
 	private static int nextCod = 0;
 	
 	public FormaPagamento() { }
-	public FormaPagamento(int cod, String nome) {
-		
+	public FormaPagamento( String nome) {
+		setCod();
+		setNomeForma(nome);
 	}
 	public int getCod() {
 		return cod;
@@ -28,4 +29,9 @@ public class FormaPagamento {
 		}
 	}
 	
+	/*Metodos
+    public ArrayList<String> consultarFormasPgto(){    }
+    public void adicionarFormaPgto(int codForma, String nomeForma){
+        Map<codForma, nomeForma>;
+    }*/
 }

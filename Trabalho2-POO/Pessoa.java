@@ -60,4 +60,9 @@ public class Pessoa {
 			return false;
 		}
 	}
+	
+	/*Metodos
+	public	ArrayList<String> consultarCPF(String cpfConsulta){
+		return this.cpf;
+	}*/
 }

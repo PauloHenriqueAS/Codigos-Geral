@@ -35,4 +35,9 @@ public class PessoaIndicadora {
 		}
 	}
 	
+	/*Metodos
+	public boolean cadastrarPessoaIndicadora(String nome, String cpf) {
+		setNome(nome);
+		setCpf(cpf);
+	}*/
 }

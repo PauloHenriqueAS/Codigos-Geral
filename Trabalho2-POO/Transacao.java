@@ -48,4 +48,9 @@ public class Transacao {
 		}
 	}
 	
+	/*Metodos
+	public void registrarTransacao(int nroContrato){}
+	public ArrayList<String> consultarNroContrato(int idImovel){}
+	public void gerarBoleto(String cpfCliente, float valor){}
+	*/
 }

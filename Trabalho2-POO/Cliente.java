@@ -4,9 +4,8 @@ public class Cliente extends Pessoa{
 	protected String profissao;
 	protected String estadoCivil;
 	
-	public Cliente () {
-		
-	}
+	public Cliente () {	}
+	
 	public Cliente (String nome, String cpf, String email, String sexo, String prof, String estadoC) {
 		super(nome, cpf, email, sexo);
 		setProfissao(prof);
@@ -36,4 +35,9 @@ public class Cliente extends Pessoa{
 		}
 	}
 	
+					/*Metodo
+	public ArrayList<String> pesquisarPorRegistro(String registro){	}
+	public ArrayList<String> pesquisarPorProprietario(String cpfProprietario){}
+	public void cadastrarCliente(String nome, String cpf, String email, String sexo, String prof, String estadoCivil, LocalDate dataPrimCadastro){}
+	*/
 }

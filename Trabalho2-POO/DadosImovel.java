@@ -1,4 +1,5 @@
 package Trabalho2;
+import java.util.ArrayList;
 
 public class DadosImovel extends Imovel{
 	private int qtoQuartos;
@@ -6,8 +7,20 @@ public class DadosImovel extends Imovel{
 	private int qtoSuites;
 	private int qtoSalasEstar;
 	private int nroVagasGaragem;
-	private boolean possuiArmárioEmbutido;
-	private String descrição;
+	private boolean possuiArmarioEmbutido;
+	private String descricao;
+	
+	public DadosImovel(){ }
+	
+	public DadosImovel(int qtoQuartos, int qtoSalasJantar, int qtoSuites, int qtoSalasEstar, int nroVagasGaragem, boolean possuiArmario, String descricao) {
+		setQtoQuartos(qtoQuartos);
+		setQtoSalasJantar(qtoSalasJantar);
+		setQtoSuites(qtoSuites);
+		setQtoSalasEstar(qtoSalasEstar);
+		setNroVagasGaragem(nroVagasGaragem);
+		setPossuiArmarioEmbutido(possuiArmario);
+		setDescricao(descricao);
+	}
 	
 	public int getQtoQuartos() {
 		return qtoQuartos;
@@ -39,18 +52,30 @@ public class DadosImovel extends Imovel{
 	public void setNroVagasGaragem(int nroVagasGaragem) {
 		this.nroVagasGaragem = nroVagasGaragem;
 	}
-	public boolean isPossuiArmárioEmbutido() {
-		return possuiArmárioEmbutido;
+	public boolean isPossuiArmarioEmbutido() {
+		return possuiArmarioEmbutido;
 	}
-	public void setPossuiArmárioEmbutido(boolean possuiArmárioEmbutido) {
-		this.possuiArmárioEmbutido = possuiArmárioEmbutido;
+	public void setPossuiArmarioEmbutido(boolean possuiArmarioEmbutido) {
+		this.possuiArmarioEmbutido = possuiArmarioEmbutido;
 	}
-	public String getDescrição() {
-		return descrição;
+	public String getDescricao() {
+		return descricao;
 	}
-	public void setDescrição(String descrição) {
-		this.descrição = descrição;
+	public boolean setDescricao(String descricao) {
+		if(descricao.length() > 0) {
+			this.descricao = descricao;	
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
-	
+							/*Metodos
+	public ArrayList<String> pesquisarQtoQuartos(int nroQuartos){}
+	public ArrayList<String> pesquisarQtoSalaJantar(int nroSalaJantar){	}
+	public ArrayList<String> pesquisarQtoSuite(int nroSuite){}
+	public ArrayList<String> pesquisarQtoSalaEstar(int nroSalaEstar){}
+	public ArrayList<String> pesquisarNroVagasGaragem(int nroVagas){}
+	public ArrayList<String> pesquisarPossuiArmario(boolean armario){}
+	*/
 }

@@ -1,12 +1,14 @@
 package Trabalho2;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Corretor extends Funcionarios{
 	private static final double comissao = 0.05;
 	private int negociosFechados;
 	private LocalDate dataInicioCarreira;
 	private boolean formado;
+	private double salarioFinal;
 	private Transacao transacao;
 	private static int nextNegocio = 1;
 	
@@ -49,5 +51,27 @@ public class Corretor extends Funcionarios{
 	public void setTransacao(Transacao transacao) {
 		this.transacao = transacao;
 	}
+
+	public double getSalarioFinal() {
+		return salarioFinal;
+	}
+
+	public boolean setSalarioFinal(double salarioFinal) {
+		if(salarioBase >= 0) {
+			this.salarioFinal = salarioFinal;
+			return true;
+		}else {
+			return false;
+		}
+	}
 	
+	/*Fazer set e get salarioFinal*/
+	/*metodos
+	public String consultarNegociosFechados(){
+		return "Implementar";
+	}
+	public float calcularSalarioFinal(String cpf, String nroContrato){
+		return  super.getSalarioBase();
+	}
+	*/
 }

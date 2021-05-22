@@ -4,9 +4,8 @@ public class Login {
 	private String usuario;
 	private String senha;
 	
-	public Login() {
-		
-	}
+	public Login() {}
+	
 	public Login(String user, String password) {
 		setUsuario(user);
 		setSenha(password);
@@ -35,4 +34,12 @@ public class Login {
 		}
 	}
 	
+	/*Metodos
+	public void fazerLogin(String usuario, String senha){}
+	public void recuperarSenha(String email){
+		boolean teste = pessoa.compareTo(email);
+		if(true){
+			"gera senha provisoria"
+		}
+	}*/
 }

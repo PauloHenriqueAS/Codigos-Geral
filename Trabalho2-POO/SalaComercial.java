@@ -4,6 +4,13 @@ public class SalaComercial extends Imovel{
 	private int qtdBanheiros;
 	private int qtdComodos;
 	
+	public SalaComercial() {}
+
+	public SalaComercial(int qtdBanheiros, int qtdComodos) {
+		setQtdBanheiros(qtdBanheiros);
+		setQtdComodos(qtdComodos);
+	}
+	
 	public int getQtdBanheiros() {
 		return qtdBanheiros;
 	}
@@ -17,4 +24,9 @@ public class SalaComercial extends Imovel{
 		this.qtdComodos = qtdComodos;
 	}
 	
+	
+	/*Metodos
+	public ArrayList<String> pesquisarQtoBanheiros(int qtoBanheiro){}
+	public ArrayList<String> pesquisarQtoComodos(int qtoComodos){}
+	*/
 }

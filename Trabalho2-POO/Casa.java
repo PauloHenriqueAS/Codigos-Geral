@@ -1,8 +1,17 @@
 package Trabalho2;
 
+import java.util.ArrayList;
+
 public class Casa extends DadosImovel{
 	private boolean ehCondominio;
 	private boolean possuiPiscina;
+	
+	public Casa() {	}
+
+	public Casa(boolean ehCondominio, boolean possuiPiscina) {
+		setEhCondominio(ehCondominio);
+		setPossuiPiscina(possuiPiscina);
+	}
 	
 	public boolean isEhCondominio() {
 		return ehCondominio;
@@ -17,4 +26,11 @@ public class Casa extends DadosImovel{
 		this.possuiPiscina = possuiPiscina;
 	}
 	
+						/*Metodos
+	public ArrayList<String> pesquisarCondominio(boolean condominio){
+	}
+	public ArrayList<String> pesquisarPiscina(boolean piscina){
+		/*Comparable<piscina>;
+		compareTo();
+	}*/
 }

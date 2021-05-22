@@ -4,9 +4,7 @@ public class Telefone {
 	private String telContato;
 	private String telCelular;
 	
-	public Telefone () {
-		
-	}
+	public Telefone () {}
 	public Telefone(String tel1, String tel2) {
 		setTelContato(tel1);
 		setTelCelular(tel2);
@@ -37,4 +35,10 @@ public class Telefone {
 		
 	}
 	
+	
+	/*Metodos
+	public void cadastrarTelefone(String tel1, String tel2){
+		setTelContato(tel1);
+		setTelCelular(tel2);
+	}*/
 }

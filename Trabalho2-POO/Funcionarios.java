@@ -54,5 +54,8 @@ public class Funcionarios extends Pessoa{
 		nextID++;
 	}
 	
-	
+	/*Metodos
+	public void cadastrarFuncionario(String nome, String tel1, String cpf, String endereco, String telContato, String TelCell, LocalDate dataIngresso, String cargo, double salarioBase){}
+	public double consultarSalario(String cpf){	}*/
+
 }

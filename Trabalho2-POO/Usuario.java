@@ -3,6 +3,10 @@ package Trabalho2;
 public class Usuario extends Cliente{
 	private int idImovel;
 
+	public Usuario() {	}
+	public Usuario(int idImovel) {
+		setIdImovel(idImovel);
+	}
 	public int getIdImovel() {
 		return idImovel;
 	}

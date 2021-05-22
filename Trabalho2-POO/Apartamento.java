@@ -1,9 +1,19 @@
 package Trabalho2;
 
+import java.util.ArrayList;
+
 public class Apartamento extends DadosImovel{
 	private int andar; 
 	private double valorCondominio;
 	private boolean portaria24h;
+	
+	public Apartamento() {	}
+
+	public Apartamento(int andar, double valorCondominio, boolean portaria24h) {
+		setAndar(andar);
+		setValorCondominio(valorCondominio);
+		setPortaria24h(portaria24h);
+	}
 	
 	public int getAndar() {
 		return andar;
@@ -23,5 +33,8 @@ public class Apartamento extends DadosImovel{
 	public void setPortaria24h(boolean portaria24h) {
 		this.portaria24h = portaria24h;
 	}
-	
+							/*Metodos
+	public ArrayList<String> pesquisaValorCondominio(double valorCondominio){ }
+	public ArrayList<String> pesquisarPortaria(boolean portaria){ }
+	*/
 }
