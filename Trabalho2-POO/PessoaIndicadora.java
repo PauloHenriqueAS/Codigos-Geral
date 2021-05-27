@@ -1,6 +1,10 @@
 package Trabalho2;
 
-public class PessoaIndicadora {
+import java.io.Serializable;
+
+import Trabalho2.Valida; //Classe contendo a verificacao do cpf
+
+public class PessoaIndicadora implements PrintDados, Serializable{
 	private String nome;
 	private String cpf;
 	
@@ -27,17 +31,22 @@ public class PessoaIndicadora {
 		return cpf;
 	}
 	public boolean setCpf(String cpf) {
-		if(cpf.length() > 0) {
-			this.cpf = cpf;	
-			return true;
+		if(cpf.length() > 0) {	
+			boolean aux = Valida.valindoCPF(cpf);
+			if(aux == true) {
+				this.cpf = cpf;
+				return true;
+			}else {
+				return false;	
+			}
 		}else {
 			return false;
 		}
 	}
 	
-	/*Metodos
-	public boolean cadastrarPessoaIndicadora(String nome, String cpf) {
-		setNome(nome);
-		setCpf(cpf);
-	}*/
+	public void mostarDados(){
+		System.out.println("Nome: " + getNome());
+		System.out.println("CPF: " + getCpf());
+	}
+	
 }

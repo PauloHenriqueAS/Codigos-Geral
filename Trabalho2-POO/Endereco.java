@@ -1,6 +1,8 @@
 package Trabalho2;
 
-public class Endereco {
+import java.io.Serializable;
+
+public class Endereco implements PrintDados, Serializable {
 	private String rua;
 	private String bairro;
 	private int nro;
@@ -94,15 +96,15 @@ public class Endereco {
 		}
 	}
 	
-						/*Metodos
-	public ArrayList<String> pesquisarBairro(String Bairro){}
-	public ArrayList<String> pesquisarRua(String rua){}
-	public ArrayList<String> pesquisarCidade(String cidade){}
-	public ArrayList<String> pesquisarCEP(String cep){}
-	public void cadastrarBairro(String Bairro){}
-	public void cadastrarRua(String rua){}
-	public void cadastrarCidade(String cidade){}
-	public void cadastrarCEP(String cep){}
-	*/
+	public void mostarDados(){
+		System.out.println("Rua: " + getRua());
+		System.out.println("Bairro: " + getBairro());
+		System.out.println("Número: " + getNro());
+		System.out.println("Cidade: " + getCidade());
+		System.out.println("Estado: " + getEstado());
+		System.out.println("CEP: " + getCEP());
+		System.out.println("Complemento: " + getComplemento());
+	}
+	
 	
 }

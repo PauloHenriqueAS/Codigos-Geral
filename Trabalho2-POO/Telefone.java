@@ -1,6 +1,8 @@
 package Trabalho2;
 
-public class Telefone {
+import java.io.Serializable;
+
+public class Telefone implements PrintDados, Serializable {
 	private String telContato;
 	private String telCelular;
 	
@@ -35,10 +37,9 @@ public class Telefone {
 		
 	}
 	
+	public void mostarDados(){
+		System.out.println("Telefone Contato: " + getTelContato());
+		System.out.println("Telefone Celular: " + getTelCelular());
+	}
 	
-	/*Metodos
-	public void cadastrarTelefone(String tel1, String tel2){
-		setTelContato(tel1);
-		setTelCelular(tel2);
-	}*/
 }

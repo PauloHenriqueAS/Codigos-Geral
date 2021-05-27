@@ -1,6 +1,8 @@
 package Trabalho2;
 
-public class Pessoa {
+import java.io.Serializable;
+
+public class Pessoa implements PrintDados, Serializable {
 	protected String nome;
 	protected String cpf;
 	protected String email;
@@ -31,9 +33,14 @@ public class Pessoa {
 		return cpf;
 	}
 	public boolean setCpf(String cpf) {
-		if(cpf.length() > 0) {
-			this.cpf = cpf;
-			return true;
+		if(cpf.length() > 0) {	
+			boolean aux = Valida.valindoCPF(cpf);
+			if(aux == true) {
+				this.cpf = cpf;
+				return true;
+			}else {
+				return false;	
+			}
 		}else {
 			return false;
 		}
@@ -61,8 +68,11 @@ public class Pessoa {
 		}
 	}
 	
-	/*Metodos
-	public	ArrayList<String> consultarCPF(String cpfConsulta){
-		return this.cpf;
-	}*/
+	public void mostarDados(){
+		System.out.println("Pessoa: " + getNome());
+		System.out.println("CPF: " + getCpf());
+		System.out.println("Email: " + getEmail());
+		System.out.println("Sexo: " + getSexo());
+	}
+	
 }

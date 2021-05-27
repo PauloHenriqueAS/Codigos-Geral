@@ -1,16 +1,16 @@
 package Trabalho2;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Corretor extends Funcionarios{
+public class Corretor extends Funcionarios implements PrintDados, Serializable{
 	private static final double comissao = 0.05;
-	private int negociosFechados;
 	private LocalDate dataInicioCarreira;
 	private boolean formado;
 	private double salarioFinal;
 	private Transacao transacao;
-	private static int nextNegocio = 1;
+	private double vendasMes;
 	
 	public Corretor() {	}
 	
@@ -18,19 +18,20 @@ public class Corretor extends Funcionarios{
 		super(nome, cpf, email, sexo, cargo, salBase);
 		setDataInicioCarreira(data);
 		setFormado(formado);
-		setNegociosFechados();
 	}
 	
 	public double getComissao() {
 		return comissao;
 	}
-	public int getNegociosFechados() {
-		return negociosFechados;
+	
+	public double getVendasMes() {
+		return vendasMes;
 	}
-	public void setNegociosFechados() {
-		this.negociosFechados = nextNegocio;
-		nextNegocio++;
+
+	public void setVendasMes(double vendasMes) {
+		this.vendasMes = vendasMes;
 	}
+
 	public LocalDate getDataInicioCarreira() {
 		return dataInicioCarreira;
 	}
@@ -65,13 +66,23 @@ public class Corretor extends Funcionarios{
 		}
 	}
 	
-	/*Fazer set e get salarioFinal*/
-	/*metodos
-	public String consultarNegociosFechados(){
-		return "Implementar";
+	public double calcularSalarioFinal(){
+		double aux;
+		aux = getSalarioBase() + (comissao*vendasMes);
+		return  aux;
 	}
-	public float calcularSalarioFinal(String cpf, String nroContrato){
-		return  super.getSalarioBase();
+	public void zeraVendasMes() {
+		setVendasMes(0);
 	}
-	*/
+	
+	public void mostarDados(){
+		super.mostarDados();
+		System.out.println("Comissão: " + getComissao());
+		System.out.println("Início da carreira: " + getDataInicioCarreira());
+		System.out.println("Formado: " + isFormado());
+		System.out.println("Salário final: " + getSalarioFinal());
+		transacao.mostarDados();
+		System.out.println("Vendas Mês: " + getVendasMes());
+	}
+	
 }

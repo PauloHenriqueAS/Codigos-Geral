@@ -1,8 +1,8 @@
 package Trabalho2;
 
 import java.util.ArrayList;
-
-public class Apartamento extends DadosImovel{
+import java.io.Serializable;
+public class Apartamento extends DadosImovel implements PrintDados, Serializable{
 	private int andar; 
 	private double valorCondominio;
 	private boolean portaria24h;
@@ -33,8 +33,12 @@ public class Apartamento extends DadosImovel{
 	public void setPortaria24h(boolean portaria24h) {
 		this.portaria24h = portaria24h;
 	}
-							/*Metodos
-	public ArrayList<String> pesquisaValorCondominio(double valorCondominio){ }
-	public ArrayList<String> pesquisarPortaria(boolean portaria){ }
-	*/
+	
+	public void mostarDados(){
+		super.mostarDados();
+		System.out.println("Andar: " + getAndar());
+		System.out.println("Valor do condominio: "+ getValorCondominio());
+		System.out.println("Portaria 24h? " + isPortaria24h());
+	}
+	
 }

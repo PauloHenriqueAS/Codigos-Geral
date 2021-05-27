@@ -1,7 +1,8 @@
 package Trabalho2;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class DadosImovel extends Imovel{
+public class DadosImovel extends Imovel implements PrintDados, Serializable{
 	private int qtoQuartos;
 	private int qtoSalasJantar;
 	private int qtoSuites;
@@ -70,12 +71,81 @@ public class DadosImovel extends Imovel{
 		}
 	}
 	
-							/*Metodos
-	public ArrayList<String> pesquisarQtoQuartos(int nroQuartos){}
-	public ArrayList<String> pesquisarQtoSalaJantar(int nroSalaJantar){	}
-	public ArrayList<String> pesquisarQtoSuite(int nroSuite){}
-	public ArrayList<String> pesquisarQtoSalaEstar(int nroSalaEstar){}
-	public ArrayList<String> pesquisarNroVagasGaragem(int nroVagas){}
-	public ArrayList<String> pesquisarPossuiArmario(boolean armario){}
-	*/
+	public  int calculaIndiceVendaLocacao() {
+		String tipo = getTipoLocacao();
+		String categoria = getCategoria();
+		int baseCasa = 3, baseApto = 2;
+		
+		if(categoria.equals("casa")) {
+			if(tipo.equals("venda")) {
+				return baseCasa*2;
+			}if(tipo.equals("locacao")) {
+				return baseCasa;
+			}else {
+				return -1;	
+			}
+		}else if(categoria.equals("apartamento")) {
+			if(tipo.equals("venda")) {
+				return baseApto*2;
+			}if(tipo.equals("locacao")) {
+				return baseApto;
+			}else {
+				return -1;
+			}
+		}
+		else {
+			return -1;
+		}
+	}
+	
+	
+	public void mostarDados(){
+		super.mostarDados();
+		System.out.println("Quantidade de quartos: " + getQtoQuartos());
+		System.out.println("Quantidade salas de jantas: " + getQtoSalasJantar());
+		System.out.println("Quantidade suítes: " + getQtoSuites());
+		System.out.println("Quantidade salas de estar: " + getQtoSalasEstar());
+		System.out.println("Quantidade número de vagas garagem: " + getNroVagasGaragem());
+		System.out.println("Possui armário embutido: " + isPossuiArmarioEmbutido());
+	}
+	
+				/*Busca-Excluir-Cadastrar-Listar*/
+	private ArrayList<Imovel> vetImovel = new ArrayList<Imovel>();
+	
+	public void cadastrar(Imovel c) {
+		this.vetImovel.add(c);
+		Persist.salvarBinario("imovel.dat", c);//Salvar no arquivo
+		System.out.println("Total de imoveis inseridos: ");
+		System.out.println(this.vetImovel.size());
+	}
+	
+	public void listar(){
+		for (Imovel objeto: this.vetImovel) {
+			objeto.mostarDados();
+		}
+	}
+	
+	public Imovel buscar(int id) {
+		Imovel c = null;
+		for ( Imovel objeto: this.vetImovel) {
+			if (objeto.getIdImovel() == id) {
+				c = objeto;
+				break;
+			}
+		}
+		return c;
+	}
+	
+	//este método usa o método buscar já implementado
+	public boolean excluir(int id){
+		Imovel imovelRemove = this.buscar(id);
+		
+		if(imovelRemove != null) {
+			this.vetImovel.remove(imovelRemove);
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
 }

@@ -1,11 +1,14 @@
 package Trabalho2;
 
-public class Terreno extends Imovel {
+import java.io.Serializable;
+
+public class Terreno extends Imovel implements PrintDados, Serializable{
 	private double largura;
 	private double comprimento;
 	private String	possuiAcliveDeclive;
 	
-	public Terreno(){ }//defaut
+	public Terreno(){ }
+	
 	public Terreno(double largura, double comprimento, String possuiAcliveDeclive) {
 		setLargura(largura);
 		setComprimento(comprimento);
@@ -44,6 +47,25 @@ public class Terreno extends Imovel {
 		}else {
 			return false;
 		}	
+	}
+	
+	public  int calculaIndiceVendaLocacao() {
+		int base =4;
+		String tipo = getTipoLocacao();
+		if(tipo.equals("lenda")) {
+			return base*2;
+		}if(tipo.equals("locacao")) {
+			return base;
+		}else {
+			return -1;
+		}
+	}
+	
+	public void mostarDados(){
+		super.mostarDados();
+		System.out.println("Largura: " + getLargura());
+		System.out.println("Comprimento: " + getComprimento());
+		System.out.println("Possui Aclive: " + getPossuiAcliveDeclive());
 	}
 	
 }

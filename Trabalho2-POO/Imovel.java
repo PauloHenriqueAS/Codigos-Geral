@@ -1,22 +1,24 @@
 package Trabalho2;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Imovel {
+public abstract class Imovel implements PrintDados, Serializable {
 	private int idImovel;
-	private boolean disponibilidade;
+	private byte disponibilidade;
 	private String tipoLocacao;
 	private String estadoConservacao;
 	private String categoria;
 	private double valor;
 	private double areaMetros;
-	private LocalDate dataPublicacao; //Date
+	private LocalDate dataPublicacao;
 	private String vendaLocacao;
-	private LocalDate dataConstrucao;//Date
+	private LocalDate dataConstrucao;
+	private Proprietario proprietarios;
 	
 	public Imovel(){ }
-
-	public Imovel(int id, boolean disponibilidade, String tipoLocacao, String estadoConservacao, String categoria, double valor, double areaMetros, LocalDate dataPublicacao, String vendaLocacao, LocalDate dataConstrucao) {
+	
+	public Imovel(int id, byte disponibilidade, String tipoLocacao, String estadoConservacao, String categoria, double valor, double areaMetros, LocalDate dataPublicacao, String vendaLocacao, LocalDate dataConstrucao, Proprietario proprietarios) {
 		setIdImovel(id);
 		setDisponibilidade(disponibilidade);
 		setTipoLocacao(tipoLocacao);
@@ -27,6 +29,7 @@ public class Imovel {
 		setDataPublicacao(dataPublicacao);
 		setVendaLocacao(vendaLocacao);
 		setDataConstrucao(dataConstrucao);
+		this.proprietarios = proprietarios;
 	}
 	
 	public int getIdImovel() {
@@ -35,10 +38,19 @@ public class Imovel {
 	public void setIdImovel(int idImovel) {
 		this.idImovel = idImovel;
 	}
-	public boolean isDisponibilidade() {
-		return disponibilidade;
+	public String isDisponibilidade() {
+		if(disponibilidade == 1) {
+			return "Ativo";
+		}else if(disponibilidade == 2) {
+			return "Inativo";
+		}else if(disponibilidade == 3) {
+			return "Em Uso";
+		}else {
+			return "Não Encontrado";
+		}
+		
 	}
-	public void setDisponibilidade(boolean disponibilidade) {
+	public void setDisponibilidade(byte disponibilidade) {
 		this.disponibilidade = disponibilidade;
 	}
 	public String getTipoLocacao() {
@@ -100,20 +112,19 @@ public class Imovel {
 		this.dataConstrucao = dataConstrucao;
 	}
 	
-	/*Metodos
-	//TODO Rever!!!!!public ArrayList<String> consultarProprietario(int idImovel){}
-	public ArrayList<String> pesquisarIdImovel(int idImovel){}
-	public ArrayList<String> pesquisarDisponibilidade(boolean disponibilidade){}
-	public ArrayList<String> pesquisarTipoLocacao(String tipoLocacao){}
-	//TODO
-	public ArrayList<String> pesquisarEstadoConservacao(String estadoConservacao){}
-	public ArrayList<String> pesquisarCategoria(String categoria){}
-	public ArrayList<String> pesquisarValor(float valor){}
-	public ArrayList<String> pesquisarAreaMetros(float area){}
-	public ArrayList<String> pesquisarVendaLocacao(String vendaLocacao){}
-	public void atualizarValor(float novoValor, int idImovel){}
-	public void cadastrarImovel(String rua, String bairro, int nro, String cidade,String cep, String complemento){}
-	public void desligarImovel(int idImovel){}
-	public void atualizarDisponibilidade(int idImovel){}
-	*/
+	public abstract int calculaIndiceVendaLocacao();
+	
+	public void mostarDados(){
+		System.out.println("Id do Imóvel: " + getIdImovel());
+		System.out.println("Disponibilidade: " + isDisponibilidade());
+		System.out.println("Tipo de Locação: " + getTipoLocacao());
+		System.out.println("Estado de Conservação: " + getEstadoConservacao());
+		System.out.println("Categoria do imóvel: " + getCategoria());
+		System.out.println("Valor: " + getValor());
+		System.out.println("Área do imóvel: " + getAreaMetros());
+		System.out.println("Data da publicação: " + getDataPublicacao());
+		System.out.println("Data da Construção: " + getDataConstrucao());
+		proprietarios.mostarDados();
+	}
+	
 }

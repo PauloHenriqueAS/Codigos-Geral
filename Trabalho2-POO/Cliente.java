@@ -1,6 +1,8 @@
 package Trabalho2;
 
-public class Cliente extends Pessoa{
+import java.io.Serializable;
+
+public class Cliente extends Pessoa implements PrintDados, Serializable{
 	protected String profissao;
 	protected String estadoCivil;
 	
@@ -35,9 +37,10 @@ public class Cliente extends Pessoa{
 		}
 	}
 	
-					/*Metodo
-	public ArrayList<String> pesquisarPorRegistro(String registro){	}
-	public ArrayList<String> pesquisarPorProprietario(String cpfProprietario){}
-	public void cadastrarCliente(String nome, String cpf, String email, String sexo, String prof, String estadoCivil, LocalDate dataPrimCadastro){}
-	*/
+	public void mostarDados(){
+		super.mostarDados();
+		System.out.println("Profissao: " + getProfissao());
+		System.out.println("Estado Civil: " + getEstadoCivil());
+	}
+		
 }

@@ -1,6 +1,8 @@
 package Trabalho2;
 
-public class Usuario extends Cliente{
+import java.io.Serializable;
+
+public class Usuario extends Cliente implements PrintDados, Serializable{
 	private int idImovel;
 
 	public Usuario() {	}
@@ -14,4 +16,8 @@ public class Usuario extends Cliente{
 		this.idImovel = idImovel;
 	}
 	
+	public void mostarDados(){
+		super.mostarDados();
+		System.out.println("Id Imovel: " + getIdImovel());
+	}
 }

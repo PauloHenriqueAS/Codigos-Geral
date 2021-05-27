@@ -1,8 +1,9 @@
 package Trabalho2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Casa extends DadosImovel{
+public class Casa extends DadosImovel implements PrintDados, Serializable{
 	private boolean ehCondominio;
 	private boolean possuiPiscina;
 	
@@ -26,11 +27,11 @@ public class Casa extends DadosImovel{
 		this.possuiPiscina = possuiPiscina;
 	}
 	
-						/*Metodos
-	public ArrayList<String> pesquisarCondominio(boolean condominio){
+	public void mostarDados(){
+		super.mostarDados();
+		System.out.println("Eh condominio: " + isEhCondominio());
+		System.out.println("Possui Piscina: " + isPossuiPiscina());
 	}
-	public ArrayList<String> pesquisarPiscina(boolean piscina){
-		/*Comparable<piscina>;
-		compareTo();
-	}*/
+	
+	
 }

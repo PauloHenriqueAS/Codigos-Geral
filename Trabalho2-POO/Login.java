@@ -1,6 +1,8 @@
 package Trabalho2;
 
-public class Login {
+import java.io.Serializable;
+
+public class Login implements PrintDados, Serializable {
 	private String usuario;
 	private String senha;
 	
@@ -34,12 +36,9 @@ public class Login {
 		}
 	}
 	
-	/*Metodos
-	public void fazerLogin(String usuario, String senha){}
-	public void recuperarSenha(String email){
-		boolean teste = pessoa.compareTo(email);
-		if(true){
-			"gera senha provisoria"
-		}
-	}*/
+	public void mostarDados(){
+		System.out.println("Usuáro: " + getUsuario());
+		System.out.println("Senha: " + "**********");
+	}
+	
 }

@@ -1,21 +1,21 @@
 package Trabalho2;
 
-public class FormaPagamento {
+import java.io.Serializable;
+
+public class FormaPagamento implements PrintDados, Serializable{
 	private int cod ;
 	private String nomeForma;
-	private static int nextCod = 0;
 	
 	public FormaPagamento() { }
-	public FormaPagamento( String nome) {
-		setCod();
+	public FormaPagamento( String nome,int cod) {
+		setCod(cod);
 		setNomeForma(nome);
 	}
 	public int getCod() {
 		return cod;
 	}
-	public void setCod() {
-		this.cod = nextCod;
-		nextCod++;
+	public void setCod(int cod) {
+		this.cod =cod;
 	}
 	public String getNomeForma() {
 		return nomeForma;
@@ -29,9 +29,9 @@ public class FormaPagamento {
 		}
 	}
 	
-	/*Metodos
-    public ArrayList<String> consultarFormasPgto(){    }
-    public void adicionarFormaPgto(int codForma, String nomeForma){
-        Map<codForma, nomeForma>;
-    }*/
+	public void mostarDados(){
+		System.out.println("Codigo: " + getCod());
+		System.out.println("Nome Forma: " + getNomeForma());
+	}
+	
 }
